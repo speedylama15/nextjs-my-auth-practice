@@ -1,0 +1,29 @@
+.input {
+	background-color: #000;
+	width: 100%;
+	border: 1px solid #9e9e9e;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.input_input {
+	background-color: transparent;
+	width: 100%;
+	outline: none;
+	border: none;
+
+	/* TODO */
+	padding: 1.5rem;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}

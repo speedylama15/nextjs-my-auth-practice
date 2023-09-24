@@ -1,0 +1,16 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 3rem;
+}
+
+.navbar_logo {
+	font-size: 3.2rem;
+	font-weight: 900;
+}
+
+.navbar_logo:hover {
+	color: #d3d3d3;
+	text-decoration: none;
+}
