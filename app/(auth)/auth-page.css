@@ -2,44 +2,101 @@
 	display: flex;
 	justify-content: center;
 	width: 100vw;
+	height: calc(100vh - 8rem);
 }
 
 .auth-form {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
-	width: 40rem;
-	margin-top: 10rem;
+	gap: 4rem;
+	width: 55rem;
+	margin-top: 8rem;
 }
 
-.input_password {
+.auth-link {
+	font-weight: 300;
+	margin-top: -3rem;
+}
+
+.auth-link > span {
+	color: #ff7f50;
+	font-weight: 600;
+	margin-left: 0.5rem;
+}
+
+.auth-field {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
 }
 
-.input_password-button {
+.auth-field > span {
+	margin-left: 2rem;
+}
+
+.auth-input {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+	background-color: #111827;
+	border: 1px solid transparent;
+	border-radius: 5rem;
+	padding: 1rem 3.2rem;
+	overflow: hidden;
+	min-width: 0;
+}
+
+.auth-input:active,
+.auth-input:focus-within {
+	border: 1px solid #b5ef72;
+}
+
+.auth-input > label {
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.auth-input > input {
 	background-color: transparent;
 	border: none;
-	padding: 0 1.2rem;
+	outline: none;
 }
 
-.input_password-button > svg {
-	width: 2rem;
-	height: auto;
+.auth-input > input::placeholder {
+	color: #808080;
+	font-size: 1.4rem;
 }
 
-.button {
-	color: #000;
-	background-color: #d3d3d3;
-	font-size: 1.6rem;
-	font-weight: 600;
-	border-radius: 0.5rem;
-	border: none;
-
-	/* TODO */
-	padding: 1.8rem;
+.auth-input > svg {
+	position: absolute;
+	right: 2rem;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-.button:hover {
+.auth-input > svg:hover {
 	cursor: pointer;
+	color: #d3d3d3;
+	fill: #d3d3d3;
+}
+
+.auth-button {
+	background-color: #b5ef72;
+	font-size: 1.6rem;
+	font-weight: 500;
+	padding: 1.5rem;
+	border: none;
+	border-radius: 2rem;
+}
+
+.auth-button:hover {
+	cursor: pointer;
+	background-color: #9fd263;
+}
+
+.auth-button:disabled {
+	cursor: no-drop;
+	color: #808080;
+	background-color: #272727;
 }
