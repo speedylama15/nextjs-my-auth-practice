@@ -1,29 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cookies, headers } from "next/headers";
-import * as jose from "jose";
 
-import { secret } from "@/lib/generateJWT";
+import getUser from "@/lib/getUser";
 
 import "./Navbar.css";
 
+export const dynamic = "force-dynamic";
+
 const Navbar = async () => {
-	const headersList = headers();
+	const user = await getUser();
 
-	const headerAccessToken = headersList.get("newAccessToken");
-	const cookieAccessToken = cookies().get("accessToken")?.value;
-
-	const accessToken = headerAccessToken ? headerAccessToken : cookieAccessToken;
-
-	let user;
-
-	try {
-		const { payload } = await jose.jwtVerify(accessToken, secret);
-
-		user = payload;
-	} catch (error) {
-		console.log(error);
-	}
+	console.log("USER", user);
 
 	return (
 		<nav className="navbar">

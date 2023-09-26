@@ -43,6 +43,20 @@ class UserModel {
 		return rows[0];
 	}
 
+	static async getUserByEmailAndGetPassword(email) {
+		const { rows } = await pool.query(
+			`
+			SELECT
+			email, password
+			FROM users
+			WHERE email=$1;
+			`,
+			[email]
+		);
+
+		return rows[0];
+	}
+
 	static async createUser({ fullName, username, email, password }) {
 		const { rows } = await pool.query(
 			`

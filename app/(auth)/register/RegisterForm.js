@@ -54,8 +54,6 @@ const RegisterForm = () => {
 			router.refresh();
 		}
 
-		console.log("RESPONSE", response);
-
 		setIsLoading(false);
 	};
 

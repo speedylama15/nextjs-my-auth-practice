@@ -18,7 +18,7 @@ export async function middleware(request) {
 		return NextResponse.redirect(new URL("/login", request.url));
 	}
 
-	// TODO: check refresh token JWTExpired
+	// TODO: check refresh token
 	try {
 		const { payload } = await jose.jwtVerify(refreshToken, secret);
 	} catch (error) {
@@ -32,7 +32,12 @@ export async function middleware(request) {
 	try {
 		const { payload } = await jose.jwtVerify(accessToken, secret);
 	} catch (error) {
-		if ((error.name = "JWTExpired")) {
+		// REVIEW: remove
+		console.log("ERROR NAME", error.name);
+		if (error.name === "JWTExpired") {
+			// REVIEW: remove
+			console.log("JWT EXPIRED BRUH");
+
 			const newAT = await generateJWT("accessToken", decodeToken(accessToken));
 
 			response.cookies.set("accessToken", newAT, { httpOnly: true, path: "/" });
